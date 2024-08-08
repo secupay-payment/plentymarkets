@@ -1,0 +1,11 @@
+<hr>
+<div>
+    {% if payment.status == 1 and (transaction.state == 'AUTHORIZED' or transaction.state == 'COMPLETED' or transaction.state == 'FULFILL') %}
+    	<p>{{ trans("secupay::Template.paymentInformationLabel") }}</p>
+    {% endif %}
+    
+    {% if transaction.state == 'FULFILL' %}
+    	{% if downloadInvoice %}<p><a href="/secupay/download-invoice/{{ transaction.id }}">{{ trans("secupay::Template.paymentInformationDownloadInvoice") }}</a></p>{% endif %}
+    	{% if downloadPackingSlip %}<p><a href="/secupay/download-packing-slip/{{ transaction.id }}">{{ trans("secupay::Template.paymentInformationDownloadPackingSlip") }}</a></p>{% endif %}
+    {% endif %}
+</div>
