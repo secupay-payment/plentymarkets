@@ -32,7 +32,7 @@ class PayPalPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PayPalTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PayPalTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PayPalPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PayPalDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PayPalDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PayPalPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PayPalIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.PayPalIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

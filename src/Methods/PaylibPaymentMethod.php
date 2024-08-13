@@ -32,7 +32,7 @@ class PaylibPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaylibTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaylibTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PaylibPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaylibDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaylibDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PaylibPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PaylibIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.PaylibIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

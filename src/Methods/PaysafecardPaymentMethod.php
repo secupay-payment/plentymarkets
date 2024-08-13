@@ -32,7 +32,7 @@ class PaysafecardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaysafecardTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaysafecardTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PaysafecardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaysafecardDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaysafecardDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PaysafecardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PaysafecardIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.PaysafecardIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

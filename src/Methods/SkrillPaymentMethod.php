@@ -32,7 +32,7 @@ class SkrillPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.SkrillTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.SkrillTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class SkrillPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.SkrillDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.SkrillDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class SkrillPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.SkrillIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.SkrillIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

@@ -32,7 +32,7 @@ class PaydirektPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaydirektTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaydirektTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PaydirektPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PaydirektDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PaydirektDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PaydirektPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PaydirektIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.PaydirektIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

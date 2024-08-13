@@ -32,7 +32,7 @@ class MasterPassPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.MasterPassTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.MasterPassTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class MasterPassPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.MasterPassDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.MasterPassDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class MasterPassPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.MasterPassIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.MasterPassIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

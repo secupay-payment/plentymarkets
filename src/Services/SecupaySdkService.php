@@ -40,7 +40,7 @@ class SecupaySdkService
      */
     public function call(string $method, array $parameters)
     {
-        $parameters['gatewayBasePath'] = self::GATEWAY_BASE_PATH;
+        $parameters['gatewayBasePath'] = 'https://app-wallee.com';
         $parameters['apiUserId'] = $this->config->get('secupay.api_user_id');
         $parameters['apiUserKey'] = $this->config->get('secupay.api_user_key');
         if (!isset($parameters['spaceId']) || $parameters['spaceId'] == 0) {

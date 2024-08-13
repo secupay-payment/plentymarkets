@@ -32,7 +32,7 @@ class PayboxPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PayboxTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PayboxTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PayboxPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PayboxDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.PayboxDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PayboxPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PayboxIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.PayboxIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

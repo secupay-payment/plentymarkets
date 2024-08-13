@@ -60,7 +60,7 @@ dass die Bestellung mit Secupay synchronisiert wird.
 ## Weitere Informationen
 
 Für mehr Informationen verweisen wir Sie auf unsere extensive <a href="https://shopportal.secupay.com/de-ch/doc" target="_blank">Dokumentation</a>.
-Bei Fragen zum Produkt oder zur Konfiguration steht Ihnen sonst unser <a href="https://wallee.com/ueber-wallee/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">Support</a> ebenfalls zur Verfügung. 
+Bei Fragen zum Produkt oder zur Konfiguration steht Ihnen sonst unser <a href="https://Secupay.com/ueber-Secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">Support</a> ebenfalls zur Verfügung. 
  
 ## Lizenz
  

@@ -64,7 +64,7 @@ the items with Secupay.
 ## Further reading
 
 More Information about the features in Secupay can be found in our extensive <a href="https://shopportal.secupay.com/en/doc" target="_blank">documentation</a>.
-If you have any questions about the product or the configuration, our <a href="https://en.wallee.com/about-wallee/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">support</a> is also available
+If you have any questions about the product or the configuration, our <a href="https://en.Secupay.com/about-Secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">support</a> is also available
  
 ## License
  
