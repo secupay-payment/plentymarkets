@@ -1,7 +1,7 @@
 <?php
-namespace Secupay\Migrations;
+namespace secupay\Migrations;
 
-use Secupay\Models\Webhook;
+use secupay\Models\Webhook;
 use Plenty\Modules\Plugin\DataBase\Contracts\Migrate;
 
 class UpdateWebhookSpaceId

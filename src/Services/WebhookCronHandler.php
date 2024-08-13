@@ -1,12 +1,12 @@
 <?php
-namespace Secupay\Services;
+namespace secupay\Services;
 
 use Plenty\Modules\Cron\Contracts\CronHandler;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
-use Secupay\Contracts\WebhookRepositoryContract;
-use Secupay\Helper\PaymentHelper;
-use Secupay\Models\Webhook;
+use secupay\Contracts\WebhookRepositoryContract;
+use secupay\Helper\PaymentHelper;
+use secupay\Models\Webhook;
 
 class WebhookCronHandler extends CronHandler
 {
@@ -33,7 +33,7 @@ class WebhookCronHandler extends CronHandler
 
     /**
      *
-     * @var SecupaySdkService
+     * @var secupaySdkService
      */
     private $sdkService;
 
@@ -49,10 +49,10 @@ class WebhookCronHandler extends CronHandler
      * @param ConfigRepository $config
      * @param PaymentHelper $paymentHelper
      * @param PaymentService $paymentService
-     * @param SecupaySdkService $sdkService
+     * @param secupaySdkService $sdkService
      * @param WebhookRepositoryContract $webhookRepository
      */
-    public function __construct(ConfigRepository $config, PaymentHelper $paymentHelper, PaymentService $paymentService, SecupaySdkService $sdkService, WebhookRepositoryContract $webhookRepository)
+    public function __construct(ConfigRepository $config, PaymentHelper $paymentHelper, PaymentService $paymentService, secupaySdkService $sdkService, WebhookRepositoryContract $webhookRepository)
     {
         $this->config = $config;
         $this->paymentHelper = $paymentHelper;

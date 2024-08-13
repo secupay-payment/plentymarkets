@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Helper;
+namespace secupay\Helper;
 
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
 use Plenty\Modules\Order\Models\Order;
@@ -56,7 +56,7 @@ class PaymentHelper
     }
 
     /**
-     * Returns the Secupay payment method's id.
+     * Returns the secupay payment method's id.
      *
      * @param number $paymentMethodId
      * @return string
@@ -75,12 +75,12 @@ class PaymentHelper
     }
 
     /**
-     * Returns the Secupay payment method's id.
+     * Returns the secupay payment method's id.
      *
      * @param number $paymentMethodId
      * @return string
      */
-    public function isSecupayPaymentMopId($mopId): bool
+    public function issecupayPaymentMopId($mopId): bool
     {
         $paymentMethods = $this->paymentMethodRepository->allForPlugin('secupay');
         if (! is_null($paymentMethods)) {

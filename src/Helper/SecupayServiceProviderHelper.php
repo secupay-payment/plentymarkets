@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Helper;
+namespace secupay\Helper;
 
 use IO\Services\BasketService;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
@@ -8,10 +8,10 @@ use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
 use Plenty\Modules\Payment\Events\Checkout\ExecutePayment;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Log\Loggable;
-use Secupay\Helper\PaymentHelper;
-use Secupay\Services\PaymentService;
+use secupay\Helper\PaymentHelper;
+use secupay\Services\PaymentService;
 
-class SecupayServiceProviderHelper
+class secupayServiceProviderHelper
 {
     use Loggable;
     

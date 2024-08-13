@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Models;
+namespace secupay\Models;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\Model;
 

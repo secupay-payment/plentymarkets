@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Methods;
+namespace secupay\Methods;
 
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Plugin\Translation\Translator;
@@ -32,7 +32,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.InvoiceTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.InvoiceTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.InvoiceDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.InvoiceDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('Secupay::Payment.InvoiceIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.InvoiceIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

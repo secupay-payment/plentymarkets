@@ -1,11 +1,11 @@
 <?php
-namespace Secupay\Providers\DataProvider;
+namespace secupay\Providers\DataProvider;
 
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 use Plenty\Modules\Payment\Models\Payment;
 use Plenty\Modules\Payment\Models\PaymentProperty;
-use Secupay\Services\SecupaySdkService;
+use secupay\Services\secupaySdkService;
 use Plenty\Plugin\ConfigRepository;
 
 class PaymentInformation
@@ -24,7 +24,7 @@ class PaymentInformation
                     }
                 }
                 if (! empty($transactionId)) {
-                    $transaction = pluginApp(SecupaySdkService::class)->call('getTransaction', [
+                    $transaction = pluginApp(secupaySdkService::class)->call('getTransaction', [
                         'id' => $transactionId
                     ]);
                     if (is_array($transaction) && isset($transaction['error'])) {

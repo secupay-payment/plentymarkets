@@ -1,8 +1,8 @@
 ## Web page
  
-Für Informationen zum Plugin oder zum Produkt <a href="https://Secupay.com/ueber-Secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">kontaktieren Sie unseren Support</a>. 
+Für Informationen zum Plugin oder zum Produkt <a href="https://secupay.com/ueber-secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">kontaktieren Sie unseren Support</a>. 
 
-Sofern Sie bereits ein Secupay Konto haben, nutzen Sie bitte das Support Fomular im Account
+Sofern Sie bereits ein secupay Konto haben, nutzen Sie bitte das Support Fomular im Account
  
 ## Email
 

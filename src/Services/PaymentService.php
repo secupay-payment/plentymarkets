@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Services;
+namespace secupay\Services;
 
 use Plenty\Modules\Basket\Models\Basket;
 use Plenty\Plugin\ConfigRepository;
@@ -11,12 +11,12 @@ use Plenty\Modules\Account\Address\Contracts\AddressRepositoryContract;
 use Plenty\Modules\Order\Shipping\Countries\Contracts\CountryRepositoryContract;
 use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
 use Plenty\Modules\Helper\Services\WebstoreHelper;
-use Secupay\Helper\PaymentHelper;
+use secupay\Helper\PaymentHelper;
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 use Plenty\Modules\Order\Models\Order;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
-use Secupay\Helper\OrderHelper;
+use secupay\Helper\OrderHelper;
 use Plenty\Modules\Item\Variation\Contracts\VariationRepositoryContract;
 use Plenty\Modules\Order\RelationReference\Models\OrderRelationReference;
 use Plenty\Modules\Item\VariationProperty\Contracts\VariationPropertyValueRepositoryContract;
@@ -32,7 +32,7 @@ class PaymentService
 
     /**
      *
-     * @var SecupaySdkService
+     * @var secupaySdkService
      */
     private $sdkService;
 
@@ -123,7 +123,7 @@ class PaymentService
     /**
      * Constructor.
      *
-     * @param SecupaySdkService $sdkService
+     * @param secupaySdkService $sdkService
      * @param ConfigRepository $config
      * @param ItemRepositoryContract $itemRepository
      * @param VariationRepositoryContract $variationRepository
@@ -139,7 +139,7 @@ class PaymentService
      * @param OrderHelper $orderHelper
      * @param OrderRepositoryContract $orderRepository
      */
-    public function __construct(SecupaySdkService $sdkService, ConfigRepository $config, ItemRepositoryContract $itemRepository, VariationRepositoryContract $variationRepository, VariationPropertyValueRepositoryContract $variationPropertyValueRepository, PropertyNameRepositoryContract $propertyNameRepository, PropertyGroupNameRepositoryContract $propertyGroupNameRepository, PropertySelectionRepositoryContract $propertySelectionRepository, FrontendSessionStorageFactoryContract $session, AddressRepositoryContract $addressRepository, CountryRepositoryContract $countryRepository, WebstoreHelper $webstoreHelper, PaymentHelper $paymentHelper, OrderHelper $orderHelper, OrderRepositoryContract $orderRepository)
+    public function __construct(secupaySdkService $sdkService, ConfigRepository $config, ItemRepositoryContract $itemRepository, VariationRepositoryContract $variationRepository, VariationPropertyValueRepositoryContract $variationPropertyValueRepository, PropertyNameRepositoryContract $propertyNameRepository, PropertyGroupNameRepositoryContract $propertyGroupNameRepository, PropertySelectionRepositoryContract $propertySelectionRepository, FrontendSessionStorageFactoryContract $session, AddressRepositoryContract $addressRepository, CountryRepositoryContract $countryRepository, WebstoreHelper $webstoreHelper, PaymentHelper $paymentHelper, OrderHelper $orderHelper, OrderRepositoryContract $orderRepository)
     {
         $this->sdkService = $sdkService;
         $this->config = $config;

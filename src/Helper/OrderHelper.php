@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Helper;
+namespace secupay\Helper;
 
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Modules\Order\Models\Order;

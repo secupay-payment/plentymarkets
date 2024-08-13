@@ -1,26 +1,26 @@
 {
 	"name": "secupay",
 	"marketplaceName": {
-		"de": "Secupay E-Commerce Hub",
-		"en": "Secupay e-commerce hub"
+		"de": "secupay E-Commerce Hub",
+		"en": "secupay e-commerce hub"
 	},
-	"namespace": "Secupay",
+	"namespace": "secupay",
 	"type": "payment",
 	"version": "2.0.43",
 	"license": " Apache License Version 2",
 	"isClosedSource": false,
 	"pluginIcon": "icon_plugin_md.png",
 	"price": 0.00,
-	"description": "The official Secupay plugin for plentymarkets.",
+	"description": "The official secupay plugin for plentymarkets.",
 	"shortDescription": {
-		"de": "Ein Plugin - 50+ PSPs. Mit dem Secupay Plugin verbinden Sie direkt zu Ihrem gewünschten PSP und akzeptieren Kreditkarten, Rechnungen, SOFORT, Alipay, usw. ",
+		"de": "Ein Plugin - 50+ PSPs. Mit dem secupay Plugin verbinden Sie direkt zu Ihrem gewünschten PSP und akzeptieren Kreditkarten, Rechnungen, SOFORT, Alipay, usw. ",
 		"en": "Connect to over 50+ Payment Service Provider. Process credit cards, Sofort, Paydirekt, PayPal, Alipay, and many more."
 	},
 	"categories": [
 		"3519"
 	],
 	"keywords": [
-		"Secupay",
+		"secupay",
 		"plentymarkets",
 		"payment",
 		"customweb",
@@ -31,7 +31,7 @@
 	"author": "customweb GmbH",
 	"authorIcon": "icon_author_sm.png",
 	"email": "info@customweb.com",
-	"serviceProvider": "Secupay\\Providers\\SecupayServiceProvider",
+	"serviceProvider": "secupay\\Providers\\secupayServiceProvider",
 	"containers": [],
 	"require": {
 		"IO": ">=3.0.0"
@@ -43,16 +43,16 @@
 		"secupay/sdk": "4.2.0"
 	},
 	"runOnBuild": [
-		"Secupay\\Migrations\\CreatePaymentMethods",
-		"Secupay\\Migrations\\CreateWebhooks",
-		"Secupay\\Migrations\\CreateWebhookTable",
-		"Secupay\\Migrations\\UpdateWebhookSpaceId"
+		"secupay\\Migrations\\CreatePaymentMethods",
+		"secupay\\Migrations\\CreateWebhooks",
+		"secupay\\Migrations\\CreateWebhookTable",
+		"secupay\\Migrations\\UpdateWebhookSpaceId"
 	],
 	"dataProviders": [
 		{
-			"key": "Secupay\\Providers\\DataProvider\\PaymentInformation",
-			"name": "Secupay Payment Information",
-			"description": "Display information about the Secupay payment on the checkout page.",
+			"key": "secupay\\Providers\\DataProvider\\PaymentInformation",
+			"name": "secupay Payment Information",
+			"description": "Display information about the secupay payment on the checkout page.",
 			"defaultLayoutContainer": "Ceres::OrderConfirmation.AdditionalPaymentInformation"
 		}
 	]

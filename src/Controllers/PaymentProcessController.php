@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Controllers;
+namespace secupay\Controllers;
 
 use IO\Services\NotificationService;
 use Plenty\Plugin\ConfigRepository;
@@ -7,8 +7,8 @@ use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Http\Response;
 use Plenty\Plugin\Log\Loggable;
-use Secupay\Services\SecupaySdkService;
-use Secupay\Helper\PaymentHelper;
+use secupay\Services\secupaySdkService;
+use secupay\Helper\PaymentHelper;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
@@ -21,12 +21,12 @@ use Plenty\Modules\Order\Models\Order;
 use Plenty\Modules\Frontend\PaymentMethod\Contracts\FrontendPaymentMethodRepositoryContract;
 use Plenty\Modules\Order\Property\Models\OrderPropertyType;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Secupay\Services\PaymentService;
+use secupay\Services\PaymentService;
 use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
 use IO\Services\OrderTotalsService;
 use IO\Models\LocalizedOrder;
 use IO\Services\SessionStorageService;
-use Secupay\Helper\OrderHelper;
+use secupay\Helper\OrderHelper;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 
 class PaymentProcessController extends Controller
@@ -42,7 +42,7 @@ class PaymentProcessController extends Controller
 
     /**
      *
-     * @var SecupaySdkService
+     * @var secupaySdkService
      */
     private $sdkService;
 
@@ -128,7 +128,7 @@ class PaymentProcessController extends Controller
      * Constructor.
      *
      * @param Response $response
-     * @param SecupaySdkService $sdkService
+     * @param secupaySdkService $sdkService
      * @param NotificationService $notificationService
      * @param PaymentService $paymentService
      * @param PaymentHelper $paymentHelper
@@ -143,7 +143,7 @@ class PaymentProcessController extends Controller
      * @param FrontendSessionStorageFactoryContract $frontendSession
      * @param ConfigRepository $config
      */
-    public function __construct(Response $response, SecupaySdkService $sdkService, NotificationService $notificationService, PaymentService $paymentService, PaymentHelper $paymentHelper, PaymentRepositoryContract $paymentRepository, OrderRepositoryContract $orderRepository, PaymentOrderRelationRepositoryContract $paymentOrderRelationRepository, OrderHelper $orderHelper, OrderService $orderService, FrontendPaymentMethodRepositoryContract $frontendPaymentMethodRepository, PaymentMethodRepositoryContract $paymentMethodService, SessionStorageService $sessionStorage, FrontendSessionStorageFactoryContract $frontendSession, ConfigRepository $config)
+    public function __construct(Response $response, secupaySdkService $sdkService, NotificationService $notificationService, PaymentService $paymentService, PaymentHelper $paymentHelper, PaymentRepositoryContract $paymentRepository, OrderRepositoryContract $orderRepository, PaymentOrderRelationRepositoryContract $paymentOrderRelationRepository, OrderHelper $orderHelper, OrderService $orderService, FrontendPaymentMethodRepositoryContract $frontendPaymentMethodRepository, PaymentMethodRepositoryContract $paymentMethodService, SessionStorageService $sessionStorage, FrontendSessionStorageFactoryContract $frontendSession, ConfigRepository $config)
     {
         parent::__construct();
         $this->response = $response;

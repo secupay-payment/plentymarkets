@@ -1,11 +1,11 @@
 <?php
-namespace Secupay\Controllers;
+namespace secupay\Controllers;
 
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Http\Response;
 use Plenty\Plugin\Log\Loggable;
-use Secupay\Services\SecupaySdkService;
+use secupay\Services\secupaySdkService;
 
 class PaymentTransactionController extends Controller
 {
@@ -26,7 +26,7 @@ class PaymentTransactionController extends Controller
 
     /**
      *
-     * @var SecupaySdkService
+     * @var secupaySdkService
      */
     private $sdkService;
 
@@ -35,9 +35,9 @@ class PaymentTransactionController extends Controller
      *
      * @param Request $request
      * @param Response $response
-     * @param SecupaySdkService $sdkService
+     * @param secupaySdkService $sdkService
      */
-    public function __construct(Request $request, Response $response, SecupaySdkService $sdkService)
+    public function __construct(Request $request, Response $response, secupaySdkService $sdkService)
     {
         $this->request = $request;
         $this->response = $response;

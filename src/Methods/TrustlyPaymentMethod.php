@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Methods;
+namespace secupay\Methods;
 
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Plugin\Translation\Translator;
@@ -32,7 +32,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.TrustlyTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.TrustlyTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.TrustlyDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.TrustlyDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('Secupay::Payment.TrustlyIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.TrustlyIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

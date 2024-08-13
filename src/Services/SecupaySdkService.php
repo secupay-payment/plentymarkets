@@ -1,10 +1,10 @@
 <?php
-namespace Secupay\Services;
+namespace secupay\Services;
 
 use Plenty\Modules\Plugin\Libs\Contracts\LibraryCallContract;
 use Plenty\Plugin\ConfigRepository;
 
-class SecupaySdkService
+class secupaySdkService
 {
 
     const GATEWAY_BASE_PATH = 'https://app-wallee.com';

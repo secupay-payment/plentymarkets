@@ -1,4 +1,4 @@
-# Release Notes for Secupay
+# Release Notes for secupay
 
 ## v2.0.41 (2024-07-10)
 

@@ -1,15 +1,15 @@
 <?php
-use Secupay\Sdk\Service\TransactionService;
-use Secupay\Sdk\Model\EntityQuery;
-use Secupay\Sdk\Model\EntityQueryFilter;
-use Secupay\Sdk\Model\EntityQueryOrderBy;
-use Secupay\Sdk\Model\EntityQueryOrderByType;
-use Secupay\Sdk\Model\EntityQueryFilterType;
-use Secupay\Sdk\Model\CriteriaOperator;
+use secupay\Sdk\Service\TransactionService;
+use secupay\Sdk\Model\EntityQuery;
+use secupay\Sdk\Model\EntityQueryFilter;
+use secupay\Sdk\Model\EntityQueryOrderBy;
+use secupay\Sdk\Model\EntityQueryOrderByType;
+use secupay\Sdk\Model\EntityQueryFilterType;
+use secupay\Sdk\Model\CriteriaOperator;
 
-require_once __DIR__ . '/SecupaySdkHelper.php';
+require_once __DIR__ . '/secupaySdkHelper.php';
 
-$client = SecupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
+$client = secupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
 
 $spaceId = SdkRestApi::getParam('spaceId');
 
@@ -42,4 +42,4 @@ $query->setOrderBys($orderBy);
 $query->setNumberOfEntities(1);
 $transactions = $service->search($spaceId, $query);
 
-return SecupaySdkHelper::convertData(current($transactions));
+return secupaySdkHelper::convertData(current($transactions));

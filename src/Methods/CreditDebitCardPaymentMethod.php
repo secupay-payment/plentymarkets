@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Methods;
+namespace secupay\Methods;
 
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Plugin\Translation\Translator;
@@ -15,6 +15,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
+        return true;
         if ($this->configRepo->get('secupay.creditcard_active') === "true") {
             return true;
         } else {
@@ -32,11 +33,11 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.CreditDebitCardTitle', [], $lang);
+        $title = "debug1: " + $translator->trans('secupay::Payment.CreditDebitCardTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
-            return 'Credit / Debit Card';
+            return 'debug2: Credit / Debit Card';
         }
     }
 
@@ -65,7 +66,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('Secupay::Payment.CreditDebitCardDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.CreditDebitCardDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +84,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('Secupay::Payment.CreditDebitCardIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.CreditDebitCardIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

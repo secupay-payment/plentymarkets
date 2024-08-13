@@ -1,4 +1,4 @@
-# Release Notes for Secupay
+# Release Notes for secupay
 
 ## v2.0.41 (2024-07-10)
 
@@ -10,7 +10,7 @@
 ### Fixed
 - Verschieben Sie die Webhook-Erstellung auf die Plugin-Bereitstellung, um Aufrufe zu minimieren
 
-# Release Notes for Secupay
+# Release Notes for secupay
 
 ## v2.0.37 (2023-10-24)
 

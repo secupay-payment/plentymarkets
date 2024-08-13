@@ -1,13 +1,13 @@
 <?php
-use Secupay\Sdk\Service\TransactionInvoiceService;
+use secupay\Sdk\Service\TransactionInvoiceService;
 
-require_once __DIR__ . '/SecupaySdkHelper.php';
+require_once __DIR__ . '/secupaySdkHelper.php';
 
-$client = SecupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
+$client = secupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
 
 $spaceId = SdkRestApi::getParam('spaceId');
 
 $service = new TransactionInvoiceService($client);
 $transactionInvoice = $service->read($spaceId, SdkRestApi::getParam('id'));
 
-return SecupaySdkHelper::convertData($transactionInvoice);
+return secupaySdkHelper::convertData($transactionInvoice);

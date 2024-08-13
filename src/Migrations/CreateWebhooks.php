@@ -1,8 +1,8 @@
 <?php
-namespace Secupay\Migrations;
+namespace secupay\Migrations;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Secupay\Services\PaymentService;
+use secupay\Services\PaymentService;
 
 class CreateWebhooks
 {

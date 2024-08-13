@@ -1,12 +1,12 @@
 <?php
-namespace Secupay\Procedures;
+namespace secupay\Procedures;
 
 use Plenty\Modules\Order\Models\Order;
 use Plenty\Modules\Payment\Models\PaymentProperty;
 use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 use Plenty\Modules\EventProcedures\Events\EventProceduresTriggered;
-use Secupay\Services\PaymentService;
-use Secupay\Helper\PaymentHelper;
+use secupay\Services\PaymentService;
+use secupay\Helper\PaymentHelper;
 use Plenty\Plugin\Log\Loggable;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
 
@@ -47,7 +47,7 @@ class RefundEventProcedure
         }
 
         if (empty($orderId)) {
-            throw new \Exception('Refund Secupay payment failed! The given order is invalid!');
+            throw new \Exception('Refund secupay payment failed! The given order is invalid!');
         }
 
         /** @var Payment[] $payment */
@@ -55,7 +55,7 @@ class RefundEventProcedure
 
         /** @var Payment $payment */
         foreach ($payments as $payment) {
-            if ($paymentHelper->isSecupayPaymentMopId($payment->mopId)) {
+            if ($paymentHelper->issecupayPaymentMopId($payment->mopId)) {
                 $transactionId = (int) $paymentHelper->getPaymentPropertyValue($payment, PaymentProperty::TYPE_TRANSACTION_ID);
                 if ($transactionId > 0) {
                     // refund the payment

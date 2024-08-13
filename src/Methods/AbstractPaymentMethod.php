@@ -1,9 +1,9 @@
 <?php
-namespace Secupay\Methods;
+namespace secupay\Methods;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
-use Secupay\Services\PaymentService;
+use secupay\Services\PaymentService;
 use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 
 abstract class AbstractPaymentMethod extends PaymentMethodService
@@ -45,11 +45,11 @@ abstract class AbstractPaymentMethod extends PaymentMethodService
     {
         switch ($this->configRepo->get('secupay.resource_version')) {
             case 'V1':
-                return \Secupay\Services\SecupaySdkService::GATEWAY_BASE_PATH . '/s/' . $this->configRepo->get('secupay.space_id') . '/resource/icon/payment/method/';
+                return \secupay\Services\secupaySdkService::GATEWAY_BASE_PATH . '/s/' . $this->configRepo->get('secupay.space_id') . '/resource/icon/payment/method/';
             case 'V2':
-                return \Secupay\Services\SecupaySdkService::GATEWAY_BASE_PATH . '/s/' . $this->configRepo->get('secupay.space_id') . '/resource/web/image/payment/method/';
+                return \secupay\Services\secupaySdkService::GATEWAY_BASE_PATH . '/s/' . $this->configRepo->get('secupay.space_id') . '/resource/web/image/payment/method/';
             default:
-                return \Secupay\Services\SecupaySdkService::GATEWAY_BASE_PATH . '/resource/web/image/payment/method/';
+                return \secupay\Services\secupaySdkService::GATEWAY_BASE_PATH . '/resource/web/image/payment/method/';
         }
     }
 

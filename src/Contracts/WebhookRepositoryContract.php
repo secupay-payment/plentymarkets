@@ -1,7 +1,7 @@
 <?php
-namespace Secupay\Contracts;
+namespace secupay\Contracts;
 
-use Secupay\Models\Webhook;
+use secupay\Models\Webhook;
 
 interface WebhookRepositoryContract
 {

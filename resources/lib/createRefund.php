@@ -1,17 +1,17 @@
 <?php
-use Secupay\Sdk\Model\LineItemReductionCreate;
-use Secupay\Sdk\Model\RefundCreate;
-use Secupay\Sdk\Service\RefundService;
-use Secupay\Sdk\ApiClient;
+use secupay\Sdk\Model\LineItemReductionCreate;
+use secupay\Sdk\Model\RefundCreate;
+use secupay\Sdk\Service\RefundService;
+use secupay\Sdk\ApiClient;
 
-require_once __DIR__ . '/SecupaySdkHelper.php';
+require_once __DIR__ . '/secupaySdkHelper.php';
 
 /**
  *
  * @param array $refundOrder
  * @param array $orderItems
  * @param boolean $isNet
- * @return \Secupay\Sdk\Model\LineItemReductionCreate[]
+ * @return \secupay\Sdk\Model\LineItemReductionCreate[]
  */
 function getReductions($refundOrder, $orderItems, $isNet)
 {
@@ -23,8 +23,8 @@ function getReductions($refundOrder, $orderItems, $isNet)
             if ($orderItemId && isset($orderItems[$orderItemId])) {
                 $orderItem = $orderItems[$orderItemId];
                 if ($orderItem['quantity'] != 0) {
-                    $orderItemUnitPrice = SecupaySdkHelper::roundAmount(($isNet ? $orderItem['amounts'][0]['priceNet'] : $orderItem['amounts'][0]['priceGross']) / $orderItem['quantity']);
-                    $itemUnitPrice = SecupaySdkHelper::roundAmount(($isNet ? $item['amounts'][0]['priceNet'] : $item['amounts'][0]['priceGross']) / $item['quantity']);
+                    $orderItemUnitPrice = secupaySdkHelper::roundAmount(($isNet ? $orderItem['amounts'][0]['priceNet'] : $orderItem['amounts'][0]['priceGross']) / $orderItem['quantity']);
+                    $itemUnitPrice = secupaySdkHelper::roundAmount(($isNet ? $item['amounts'][0]['priceNet'] : $item['amounts'][0]['priceGross']) / $item['quantity']);
                     if ($orderItemUnitPrice > $itemUnitPrice) {
                         $unitPriceReduction = $itemUnitPrice;
                     }
@@ -84,23 +84,23 @@ function getReductions($refundOrder, $orderItems, $isNet)
  * @param ApiClient $apiClient
  * @param int $spaceId
  * @param int $transactionId
- * @return \Secupay\Sdk\Model\TransactionInvoice
+ * @return \secupay\Sdk\Model\TransactionInvoice
  */
 function getTransactionInvoice($apiClient, $spaceId, $transactionId)
 {
-    $query = new \Secupay\Sdk\Model\EntityQuery();
+    $query = new \secupay\Sdk\Model\EntityQuery();
 
-    $filter = new \Secupay\Sdk\Model\EntityQueryFilter();
-    $filter->setType(\Secupay\Sdk\Model\EntityQueryFilterType::_AND);
+    $filter = new \secupay\Sdk\Model\EntityQueryFilter();
+    $filter->setType(\secupay\Sdk\Model\EntityQueryFilterType::_AND);
     $filter->setChildren(array(
-        SecupaySdkHelper::createEntityFilter('state', \Secupay\Sdk\Model\TransactionInvoiceState::CANCELED, \Secupay\Sdk\Model\CriteriaOperator::NOT_EQUALS),
-        SecupaySdkHelper::createEntityFilter('completion.lineItemVersion.transaction.id', $transactionId)
+        secupaySdkHelper::createEntityFilter('state', \secupay\Sdk\Model\TransactionInvoiceState::CANCELED, \secupay\Sdk\Model\CriteriaOperator::NOT_EQUALS),
+        secupaySdkHelper::createEntityFilter('completion.lineItemVersion.transaction.id', $transactionId)
     ));
     $query->setFilter($filter);
 
     $query->setNumberOfEntities(1);
 
-    $invoiceService = new \Secupay\Sdk\Service\TransactionInvoiceService($apiClient);
+    $invoiceService = new \secupay\Sdk\Service\TransactionInvoiceService($apiClient);
     $result = $invoiceService->search($spaceId, $query);
     if (! empty($result)) {
         return $result[0];
@@ -114,23 +114,23 @@ function getTransactionInvoice($apiClient, $spaceId, $transactionId)
  * @param RefundService $refundService
  * @param int $spaceId
  * @param int $transactionId
- * @return \Secupay\Sdk\Model\Refund
+ * @return \secupay\Sdk\Model\Refund
  */
 function getLastSuccessfulRefund($refundService, $spaceId, $transactionId)
 {
-    $query = new \Secupay\Sdk\Model\EntityQuery();
+    $query = new \secupay\Sdk\Model\EntityQuery();
 
-    $filter = new \Secupay\Sdk\Model\EntityQueryFilter();
-    $filter->setType(\Secupay\Sdk\Model\EntityQueryFilterType::_AND);
+    $filter = new \secupay\Sdk\Model\EntityQueryFilter();
+    $filter->setType(\secupay\Sdk\Model\EntityQueryFilterType::_AND);
     $filters = [
-        SecupaySdkHelper::createEntityFilter('state', \Secupay\Sdk\Model\RefundState::SUCCESSFUL),
-        SecupaySdkHelper::createEntityFilter('transaction.id', $transactionId)
+        secupaySdkHelper::createEntityFilter('state', \secupay\Sdk\Model\RefundState::SUCCESSFUL),
+        secupaySdkHelper::createEntityFilter('transaction.id', $transactionId)
     ];
     $filter->setChildren($filters);
     $query->setFilter($filter);
 
     $query->setOrderBys([
-        SecupaySdkHelper::createEntityOrderBy('createdOn', \Secupay\Sdk\Model\EntityQueryOrderByType::DESC)
+        secupaySdkHelper::createEntityOrderBy('createdOn', \secupay\Sdk\Model\EntityQueryOrderByType::DESC)
     ]);
 
     $query->setNumberOfEntities(1);
@@ -149,7 +149,7 @@ function getLastSuccessfulRefund($refundService, $spaceId, $transactionId)
  * @param RefundService $refundService
  * @param int $spaceId
  * @param int $transactionId
- * @return \Secupay\Sdk\Model\LineItem[]
+ * @return \secupay\Sdk\Model\LineItem[]
  */
 function getBaseLineItems($apiClient, $refundService, $spaceId, $transactionId)
 {
@@ -164,31 +164,31 @@ function getBaseLineItems($apiClient, $refundService, $spaceId, $transactionId)
 /**
  *
  * @param float $refundAmount
- * @param \Secupay\Sdk\Model\LineItemReductionCreate[] $reductions
+ * @param \secupay\Sdk\Model\LineItemReductionCreate[] $reductions
  * @param ApiClient $apiClient
  * @param RefundService $refundService
  * @param int $spaceId
  * @param int $transactionId
- * @return \Secupay\Sdk\Model\LineItemReductionCreate[]
+ * @return \secupay\Sdk\Model\LineItemReductionCreate[]
  */
 function fixReductions($refundAmount, $reductions, $apiClient, $refundService, $spaceId, $transactionId)
 {
     $baseLineItems = getBaseLineItems($apiClient, $refundService, $spaceId, $transactionId);
-    $reductionAmount = SecupaySdkHelper::getReductionAmount($baseLineItems, $reductions);
+    $reductionAmount = secupaySdkHelper::getReductionAmount($baseLineItems, $reductions);
 
     if ($reductionAmount != $refundAmount) {
         $fixedReductions = [];
-        $baseAmount = SecupaySdkHelper::calculateLineItemTotalAmount($baseLineItems);
+        $baseAmount = secupaySdkHelper::calculateLineItemTotalAmount($baseLineItems);
         if ($baseAmount == 0) {
             throw new \Exception('There are no line items left that can be refunded on the transaction ' . $transactionId . ' in space ' . $spaceId . '.');
         }
         $rate = $refundAmount / $baseAmount;
         foreach ($baseLineItems as $lineItem) {
             if ($lineItem->getQuantity() > 0) {
-                $reduction = new \Secupay\Sdk\Model\LineItemReductionCreate();
+                $reduction = new \secupay\Sdk\Model\LineItemReductionCreate();
                 $reduction->setLineItemUniqueId($lineItem->getUniqueId());
                 $reduction->setQuantityReduction(0);
-                $reduction->setUnitPriceReduction(SecupaySdkHelper::roundAmount($lineItem->getAmountIncludingTax() * $rate / $lineItem->getQuantity()));
+                $reduction->setUnitPriceReduction(secupaySdkHelper::roundAmount($lineItem->getAmountIncludingTax() * $rate / $lineItem->getQuantity()));
                 $fixedReductions[] = $reduction;
             }
         }
@@ -198,7 +198,7 @@ function fixReductions($refundAmount, $reductions, $apiClient, $refundService, $
     }
 }
 
-$client = SecupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
+$client = secupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
 
 $spaceId = SdkRestApi::getParam('spaceId');
 
@@ -211,7 +211,7 @@ $refundRequest->setTransaction($transactionId);
 
 $refundRequest->setExternalId($refundOrder['id']);
 
-$refundRequest->setType(\Secupay\Sdk\Model\RefundType::MERCHANT_INITIATED_ONLINE);
+$refundRequest->setType(\secupay\Sdk\Model\RefundType::MERCHANT_INITIATED_ONLINE);
 
 $order = SdkRestApi::getParam('order');
 $orderItems = [];
@@ -229,4 +229,4 @@ $reductions = fixReductions($refundAmount, $reductions, $client, $refundService,
 $refundRequest->setReductions($reductions);
 $refundResponse = $refundService->refund($spaceId, $refundRequest);
 
-return SecupaySdkHelper::convertData($refundResponse);
+return secupaySdkHelper::convertData($refundResponse);

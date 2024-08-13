@@ -1,5 +1,5 @@
 <?php
-namespace Secupay\Providers;
+namespace secupay\Providers;
 
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
@@ -7,60 +7,60 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
-use Secupay\Helper\PaymentHelper;
-use Secupay\Helper\SecupayServiceProviderHelper;
-use Secupay\Services\PaymentService;
+use secupay\Helper\PaymentHelper;
+use secupay\Helper\secupayServiceProviderHelper;
+use secupay\Services\PaymentService;
 use Plenty\Modules\Payment\Events\Checkout\ExecutePayment;
-use Secupay\Methods\CreditDebitCardPaymentMethod;
-use Secupay\Methods\InvoicePaymentMethod;
-use Secupay\Methods\OnlineBankingPaymentMethod;
+use secupay\Methods\CreditDebitCardPaymentMethod;
+use secupay\Methods\InvoicePaymentMethod;
+use secupay\Methods\OnlineBankingPaymentMethod;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Secupay\Methods\AlipayPaymentMethod;
-use Secupay\Methods\BankTransferPaymentMethod;
-use Secupay\Methods\CashuPaymentMethod;
-use Secupay\Methods\DaoPayPaymentMethod;
-use Secupay\Methods\DirectDebitSepaPaymentMethod;
-use Secupay\Methods\DirectDebitUkPaymentMethod;
-use Secupay\Methods\EpsPaymentMethod;
-use Secupay\Methods\GiropayPaymentMethod;
-use Secupay\Methods\IDealPaymentMethod;
-use Secupay\Methods\MasterPassPaymentMethod;
-use Secupay\Methods\PayboxPaymentMethod;
-use Secupay\Methods\PaydirektPaymentMethod;
-use Secupay\Methods\PaylibPaymentMethod;
-use Secupay\Methods\PayPalPaymentMethod;
-use Secupay\Methods\PaysafecardPaymentMethod;
-use Secupay\Methods\PoliPaymentMethod;
-use Secupay\Methods\Przelewy24PaymentMethod;
-use Secupay\Methods\QiwiPaymentMethod;
-use Secupay\Methods\SkrillPaymentMethod;
-use Secupay\Methods\SofortBankingPaymentMethod;
-use Secupay\Methods\TenpayPaymentMethod;
-use Secupay\Methods\TrustlyPaymentMethod;
-use Secupay\Methods\TwintPaymentMethod;
-use Secupay\Procedures\RefundEventProcedure;
+use secupay\Methods\AlipayPaymentMethod;
+use secupay\Methods\BankTransferPaymentMethod;
+use secupay\Methods\CashuPaymentMethod;
+use secupay\Methods\DaoPayPaymentMethod;
+use secupay\Methods\DirectDebitSepaPaymentMethod;
+use secupay\Methods\DirectDebitUkPaymentMethod;
+use secupay\Methods\EpsPaymentMethod;
+use secupay\Methods\GiropayPaymentMethod;
+use secupay\Methods\IDealPaymentMethod;
+use secupay\Methods\MasterPassPaymentMethod;
+use secupay\Methods\PayboxPaymentMethod;
+use secupay\Methods\PaydirektPaymentMethod;
+use secupay\Methods\PaylibPaymentMethod;
+use secupay\Methods\PayPalPaymentMethod;
+use secupay\Methods\PaysafecardPaymentMethod;
+use secupay\Methods\PoliPaymentMethod;
+use secupay\Methods\Przelewy24PaymentMethod;
+use secupay\Methods\QiwiPaymentMethod;
+use secupay\Methods\SkrillPaymentMethod;
+use secupay\Methods\SofortBankingPaymentMethod;
+use secupay\Methods\TenpayPaymentMethod;
+use secupay\Methods\TrustlyPaymentMethod;
+use secupay\Methods\TwintPaymentMethod;
+use secupay\Procedures\RefundEventProcedure;
 use Plenty\Modules\EventProcedures\Services\EventProceduresService;
 use Plenty\Modules\EventProcedures\Services\Entries\ProcedureEntry;
 use Plenty\Modules\Cron\Services\CronContainer;
-use Secupay\Services\WebhookCronHandler;
-use Secupay\Contracts\WebhookRepositoryContract;
-use Secupay\Repositories\WebhookRepository;
+use secupay\Services\WebhookCronHandler;
+use secupay\Contracts\WebhookRepositoryContract;
+use secupay\Repositories\WebhookRepository;
 use IO\Services\BasketService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
 
-class SecupayServiceProvider extends ServiceProvider
+class secupayServiceProvider extends ServiceProvider
 {
 
     public function register()
     {
-        $this->getApplication()->register(SecupayRouteServiceProvider::class);
+        $this->getApplication()->register(secupayRouteServiceProvider::class);
         $this->getApplication()->bind(WebhookRepositoryContract::class, WebhookRepository::class);
         $this->getApplication()->bind(RefundEventProcedure::class);
     }
 
     /**
-     * Boot services of the Secupay plugin.
+     * Boot services of the secupay plugin.
      *
      * @param PaymentMethodContainer $payContainer
      */
@@ -68,7 +68,7 @@ class SecupayServiceProvider extends ServiceProvider
         PaymentMethodContainer $payContainer,
         EventProceduresService $eventProceduresService,
         CronContainer $cronContainer,
-        SecupayServiceProviderHelper $secupayServiceProviderHelper,
+        secupayServiceProviderHelper $secupayServiceProviderHelper,
         PaymentService $paymentService
     ) {
         $this->registerPaymentMethod($payContainer, 1457546097615, AlipayPaymentMethod::class);
@@ -99,10 +99,10 @@ class SecupayServiceProvider extends ServiceProvider
         $this->registerPaymentMethod($payContainer, 1457546097639, TwintPaymentMethod::class);
 
         // Register Refund Event Procedure
-        $eventProceduresService->registerProcedure('plentySecupay', ProcedureEntry::PROCEDURE_GROUP_ORDER, [
-            'de' => 'Rückzahlung der Secupay-Zahlung',
-            'en' => 'Refund the Secupay payment'
-        ], 'Secupay\Procedures\RefundEventProcedure@run');
+        $eventProceduresService->registerProcedure('plentysecupay', ProcedureEntry::PROCEDURE_GROUP_ORDER, [
+            'de' => 'Rückzahlung der secupay-Zahlung',
+            'en' => 'Refund the secupay payment'
+        ], 'secupay\Procedures\RefundEventProcedure@run');
 
         $secupayServiceProviderHelper->addExecutePaymentContentEventListener();
 

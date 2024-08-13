@@ -1,8 +1,8 @@
 ## Web page
  
-For more information or support please <a href="https://en.Secupay.com/about-Secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">contact us</a>. 
+For more information or support please <a href="https://en.secupay.com/about-secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">contact us</a>. 
 
-In case you do already have a Secupay account please use the support form in the application.
+In case you do already have a secupay account please use the support form in the application.
  
 ## Email
 

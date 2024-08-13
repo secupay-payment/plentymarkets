@@ -1,20 +1,20 @@
 <?php
-use Secupay\Sdk\Service\TransactionService;
-use Secupay\Sdk\Service\LanguageService;
-use Secupay\Sdk\Model\LineItemCreate;
-use Secupay\Sdk\Model\AddressCreate;
-use Secupay\Sdk\Model\TaxCreate;
-use Secupay\Sdk\Service\PaymentMethodConfigurationService;
-use Secupay\Sdk\Model\EntityQuery;
-use Secupay\Sdk\Model\EntityQueryFilter;
-use Secupay\Sdk\Service\CurrencyService;
-use Secupay\Sdk\Model\Gender;
-use Secupay\Sdk\Model\TransactionPending;
-use Secupay\Sdk\Model\TransactionCreate;
+use secupay\Sdk\Service\TransactionService;
+use secupay\Sdk\Service\LanguageService;
+use secupay\Sdk\Model\LineItemCreate;
+use secupay\Sdk\Model\AddressCreate;
+use secupay\Sdk\Model\TaxCreate;
+use secupay\Sdk\Service\PaymentMethodConfigurationService;
+use secupay\Sdk\Model\EntityQuery;
+use secupay\Sdk\Model\EntityQueryFilter;
+use secupay\Sdk\Service\CurrencyService;
+use secupay\Sdk\Model\Gender;
+use secupay\Sdk\Model\TransactionPending;
+use secupay\Sdk\Model\TransactionCreate;
 
-require_once __DIR__ . '/SecupaySdkHelper.php';
+require_once __DIR__ . '/secupaySdkHelper.php';
 
-$client = SecupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
+$client = secupaySdkHelper::getApiClient(SdkRestApi::getParam('gatewayBasePath'), SdkRestApi::getParam('apiUserId'), SdkRestApi::getParam('apiUserKey'));
 
 function collectTransactionData($transactionRequest, $client)
 {
@@ -52,7 +52,7 @@ function collectTransactionData($transactionRequest, $client)
     $arrayOfItemIdsInLoop = [];
     $maxTaxRate = 0;
     foreach (SdkRestApi::getParam('basketItems') as $key => $basketItem) {
-        $prefixIfDuplicated = SecupaySdkHelper::checkForDuplicatePrefix($basketItem['plenty_basket_row_item_variation_id'], $arrayOfItemIdsInLoop, $key);
+        $prefixIfDuplicated = secupaySdkHelper::checkForDuplicatePrefix($basketItem['plenty_basket_row_item_variation_id'], $arrayOfItemIdsInLoop, $key);
         $arrayOfItemIdsInLoop[] = $basketItem['plenty_basket_row_item_variation_id'];
 
         $lineItem = new LineItemCreate();
@@ -62,9 +62,9 @@ function collectTransactionData($transactionRequest, $client)
         $lineItem->setQuantity((int) $basketItem['quantity']);
         $lineItem->setShippingRequired(true);
         if ($basketNetPrices && isset($basketItem['vat']) && ! empty($basketItem['vat'])) {
-            $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount(($basketItem['price'] / (1 + $basketItem['vat'] / 100)) * $basketItem['quantity'], $currencyDecimalPlaces));
+            $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount(($basketItem['price'] / (1 + $basketItem['vat'] / 100)) * $basketItem['quantity'], $currencyDecimalPlaces));
         } else {
-            $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basketItem['price'] * $basketItem['quantity'], $currencyDecimalPlaces));
+            $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basketItem['price'] * $basketItem['quantity'], $currencyDecimalPlaces));
         }
         if (isset($basketItem['vat']) && ! empty($basketItem['vat'])) {
             $lineItem->setTaxes([
@@ -86,7 +86,7 @@ function collectTransactionData($transactionRequest, $client)
         $lineItem->setSku('shipping');
         $lineItem->setName('Shipping');
         $lineItem->setQuantity(1);
-        $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basket['shippingAmount'], $currencyDecimalPlaces));
+        $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basket['shippingAmount'], $currencyDecimalPlaces));
         $taxAmount = $basket['shippingAmount'] - $basket['shippingAmountNet'];
         if ($taxAmount > 0) {
             $lineItem->setTaxes([
@@ -105,7 +105,7 @@ function collectTransactionData($transactionRequest, $client)
         $lineItem->setSku('coupon-discount');
         $lineItem->setName('Coupon Discount');
         $lineItem->setQuantity(1);
-        $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basket['couponDiscount'], $currencyDecimalPlaces));
+        $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basket['couponDiscount'], $currencyDecimalPlaces));
         $lineItem->setType('DISCOUNT');
         $lineItems[] = $lineItem;
     }
@@ -115,19 +115,19 @@ function collectTransactionData($transactionRequest, $client)
         $lineItem->setSku('payment-fee');
         $lineItem->setName('Payment Fee');
         $lineItem->setQuantity(1);
-        $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basket['paymentAmount'], $currencyDecimalPlaces));
+        $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basket['paymentAmount'], $currencyDecimalPlaces));
         $lineItem->setType('FEE');
         $lineItems[] = $lineItem;
     }
-    $lineItemTotalAmount = SecupaySdkHelper::calculateLineItemTotalAmount($lineItems);
+    $lineItemTotalAmount = secupaySdkHelper::calculateLineItemTotalAmount($lineItems);
     $basketAmount = $basketForTemplate['basketAmount'];
-    if (SecupaySdkHelper::roundAmount($lineItemTotalAmount, $currencyDecimalPlaces) > SecupaySdkHelper::roundAmount($basketAmount, $currencyDecimalPlaces)) {
+    if (secupaySdkHelper::roundAmount($lineItemTotalAmount, $currencyDecimalPlaces) > secupaySdkHelper::roundAmount($basketAmount, $currencyDecimalPlaces)) {
         $lineItem = new LineItemCreate();
         $lineItem->setUniqueId('adjustment');
         $lineItem->setSku('adjustment');
         $lineItem->setName('Adjustment');
         $lineItem->setQuantity(1);
-        $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basketAmount - $lineItemTotalAmount, $currencyDecimalPlaces));
+        $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basketAmount - $lineItemTotalAmount, $currencyDecimalPlaces));
         $lineItem->setType('DISCOUNT');
         $lineItems[] = $lineItem;
     } elseif ($lineItemTotalAmount < $basketAmount) {
@@ -136,7 +136,7 @@ function collectTransactionData($transactionRequest, $client)
         $lineItem->setSku('adjustment');
         $lineItem->setName('Adjustment');
         $lineItem->setQuantity(1);
-        $lineItem->setAmountIncludingTax(SecupaySdkHelper::roundAmount($basketAmount - $lineItemTotalAmount, $currencyDecimalPlaces));
+        $lineItem->setAmountIncludingTax(secupaySdkHelper::roundAmount($basketAmount - $lineItemTotalAmount, $currencyDecimalPlaces));
         $lineItem->setType('FEE');
         $lineItems[] = $lineItem;
     }
@@ -202,10 +202,10 @@ function collectTransactionData($transactionRequest, $client)
     $query = new EntityQuery();
     $query->setNumberOfEntities(20);
     $filter = new EntityQueryFilter();
-    $filter->setType(\Secupay\Sdk\Model\EntityQueryFilterType::_AND);
+    $filter->setType(\secupay\Sdk\Model\EntityQueryFilterType::_AND);
     $filter->setChildren([
-        SecupaySdkHelper::createEntityFilter('state', \Secupay\Sdk\Model\CreationEntityState::ACTIVE),
-        SecupaySdkHelper::createEntityFilter('paymentMethod', $paymentMethodId)
+        secupaySdkHelper::createEntityFilter('state', \secupay\Sdk\Model\CreationEntityState::ACTIVE),
+        secupaySdkHelper::createEntityFilter('paymentMethod', $paymentMethodId)
     ]);
     $query->setFilter($filter);
     $paymentMethodConfigurations = $paymentMethodConfigurationService->search($spaceId, $query);
@@ -228,7 +228,7 @@ if (! empty($transactionId)) {
     collectTransactionData($transactionRequest, $client);
     $transactionRequest->setAutoConfirmationEnabled(false);
     $transactionRequest->setChargeRetryEnabled(false);
-    $transactionRequest->setCustomersPresence(\Secupay\Sdk\Model\CustomersPresence::VIRTUAL_PRESENT);
+    $transactionRequest->setCustomersPresence(\secupay\Sdk\Model\CustomersPresence::VIRTUAL_PRESENT);
     $createdTransaction = $service->create($spaceId, $transactionRequest);
 }
 
@@ -239,4 +239,4 @@ collectTransactionData($pendingTransaction, $client);
 $pendingTransaction->setFailedUrl(SdkRestApi::getParam('failedUrl') . '/' . $createdTransaction->getId());
 $transactionResponse = $service->update($spaceId, $pendingTransaction);
 
-return SecupaySdkHelper::convertData($transactionResponse);
+return secupaySdkHelper::convertData($transactionResponse);

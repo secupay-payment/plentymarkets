@@ -1,8 +1,8 @@
 <?php
-namespace Secupay\Migrations;
+namespace secupay\Migrations;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Secupay\Helper\PaymentHelper;
+use secupay\Helper\PaymentHelper;
 
 class CreatePaymentMethods
 {
@@ -32,7 +32,7 @@ class CreatePaymentMethods
     }
 
     /**
-     * Creates the payment methods for the Secupay plugin.
+     * Creates the payment methods for the secupay plugin.
      */
     public function run()
     {

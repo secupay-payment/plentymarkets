@@ -1,15 +1,15 @@
-# Verbinden Sie Ihren plentymarkets Shop mit Secupay
+# Verbinden Sie Ihren plentymarkets Shop mit secupay
 
-Secupay bietet Ihnen als PSP / E-Commerce hub direkten Zugang zu einer großen Auswahl an Zahlungsverarbeitern und
+secupay bietet Ihnen als PSP / E-Commerce hub direkten Zugang zu einer großen Auswahl an Zahlungsverarbeitern und
 Zahlungsmethoden via eine standardisierte API. Mit anderen Worten lösen wir mit diesem Produkt
 Ihre Zahlungsprobleme auf einen Schlag in Ihrem Webshop. Sobald Sie das Plugin in Ihrem Shop installiert haben, 
 können Sie für die Verarbeitung Ihrer Zahlung aus einem der integrierten <a href="https://shopportal.secupay.com/en/processors" target="_blank">Verarbeitern</a> auswählen. Damit wird die Verarbeitung via Kreditkarten aber auch jede weitere Form alternativer Zahlungsarten ermöglicht.
 Sie können zudem auch Rechnungen verarbeiten (Für Schweizer Kunden sogar mit Einzahlungsschein).
 Daneben können Sie Ihre Kunden auch mittels selbst-konfigurierbaren Mahnläufen mahnen u.v.m.
  
-Für die Zahlungsabwicklung wird der Kunde auf die Secupay payment page weitergeleitet, welche Sie vollständig selber gestalten können. 
+Für die Zahlungsabwicklung wird der Kunde auf die secupay payment page weitergeleitet, welche Sie vollständig selber gestalten können. 
  
-Neben der Zahlungsverarbeitung löst Ihnen Secupay auch noch zahlreiche weitere Probleme die Sie als Händler haben. Wie beispielsweise:
+Neben der Zahlungsverarbeitung löst Ihnen secupay auch noch zahlreiche weitere Probleme die Sie als Händler haben. Wie beispielsweise:
 
 * Sie skalieren per Knopfdruck und können eine neu Zahlart aktivieren
 * Sie können Ihre eigenen Rechnungsdokumente erstellen und den Kunden zustellen oder drucken via Cloud
@@ -22,9 +22,9 @@ Dies und vieles mehr steht Ihnen ab sofort mit einer direkten Integration zur Ve
 
 ## Voraussetzungen
 
-Damit Sie Secupay nutzen können müssen Sie folgende Voraussetzungen erfüllen:
+Damit Sie secupay nutzen können müssen Sie folgende Voraussetzungen erfüllen:
 
-* Sie benötigen ein Secupay Konto. Dieses können Sie mit dem <a href="https://shopportal.secupay.com/user/signup" target="_blank">signup</a> Link kostenfrei erstellen.
+* Sie benötigen ein secupay Konto. Dieses können Sie mit dem <a href="https://shopportal.secupay.com/user/signup" target="_blank">signup</a> Link kostenfrei erstellen.
 * Sie müssen das Plugin installieren entweder via Marketplace oder indem Sie das Github Repository unter Plugin > Git einfügen.
 
  
@@ -38,16 +38,16 @@ Das Plugin kann einfach in Ihrem Shop installiert und konfiguriert werden.
  
 ### Anpassen der E-Mail, Payment Page und Dokumente
 
-Für die Verarbeitung der Zahlung werden Sie auf die Zahlungsseite von Secupay weitergeleitet. Diese Seite können Sie mit Hilfe der TWIG Templates komplett selber gestalten. Mehr Informationen finden Sie in der <a href="https://shopportal.secupay.com/de-ch/doc/document-handling" target="_blank">Dokumentation</a>.
+Für die Verarbeitung der Zahlung werden Sie auf die Zahlungsseite von secupay weitergeleitet. Diese Seite können Sie mit Hilfe der TWIG Templates komplett selber gestalten. Mehr Informationen finden Sie in der <a href="https://shopportal.secupay.com/de-ch/doc/document-handling" target="_blank">Dokumentation</a>.
  
  
 ### Gutschriften
  
-Tragen Sie noch die Stati für die Gutschriften ein, bei welchem automatisch eine Gutschriftsanzeige an Secupay übermittelt wird. 
+Tragen Sie noch die Stati für die Gutschriften ein, bei welchem automatisch eine Gutschriftsanzeige an secupay übermittelt wird. 
 Bitte führen Sie folgende Schritte durch:
 
 1. Erstellen Sie unter Einstellung > Aufträge > Ereignisaktionen eine Ereignisaktion für Statuswechsel. Wählen Sie den initialen
-Status und die Aktion "Rückzahlung der Secupay-Zahlung", welche Sie im Ordner Plugin finden. 
+Status und die Aktion "Rückzahlung der secupay-Zahlung", welche Sie im Ordner Plugin finden. 
 2. Speichern Sie die Ereignisaktion.
 
 Sie können nun entweder Gutschriften oder Retouren direkt in der Bestellung anlegen:
@@ -55,12 +55,12 @@ Sie können nun entweder Gutschriften oder Retouren direkt in der Bestellung anl
 1. Öffnen Sie die Bestellung und wählen Sie entweder eine Gutschrift oder eine Retoure anlegen. 
 2. Selektieren Sie die Produkte, die Sie gutschreiben / retournieren möchten. 
 3. Verschieben Sie den Status der Bestellung in den initialen Status der Ereignisaktion, welche Sie oben definiert haben. Dies führt automatisch dazu,
-dass die Bestellung mit Secupay synchronisiert wird. 
+dass die Bestellung mit secupay synchronisiert wird. 
 
 ## Weitere Informationen
 
 Für mehr Informationen verweisen wir Sie auf unsere extensive <a href="https://shopportal.secupay.com/de-ch/doc" target="_blank">Dokumentation</a>.
-Bei Fragen zum Produkt oder zur Konfiguration steht Ihnen sonst unser <a href="https://Secupay.com/ueber-Secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">Support</a> ebenfalls zur Verfügung. 
+Bei Fragen zum Produkt oder zur Konfiguration steht Ihnen sonst unser <a href="https://secupay.com/ueber-secupay/support?_ga=2.171642464.1523640132.1674037856-1834608674.1611572458" target="_blank">Support</a> ebenfalls zur Verfügung. 
  
 ## Lizenz
  

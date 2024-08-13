@@ -1,15 +1,15 @@
 <?php
-namespace Secupay\Controllers;
+namespace secupay\Controllers;
 
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Http\Response;
-use Secupay\Helper\PaymentHelper;
-use Secupay\Services\PaymentService;
+use secupay\Helper\PaymentHelper;
+use secupay\Services\PaymentService;
 use Plenty\Plugin\Log\Loggable;
-use Secupay\Services\SecupaySdkService;
-use Secupay\Contracts\WebhookRepositoryContract;
+use secupay\Services\secupaySdkService;
+use secupay\Contracts\WebhookRepositoryContract;
 
 class PaymentNotificationController extends Controller
 {
@@ -48,7 +48,7 @@ class PaymentNotificationController extends Controller
 
     /**
      *
-     * @var SecupaySdkService
+     * @var secupaySdkService
      */
     private $sdkService;
 
@@ -66,10 +66,10 @@ class PaymentNotificationController extends Controller
      * @param ConfigRepository $config
      * @param PaymentHelper $paymentHelper
      * @param PaymentService $paymentService
-     * @param SecupaySdkService $sdkService
+     * @param secupaySdkService $sdkService
      * @param WebhookRepositoryContract $webhookRepository
      */
-    public function __construct(Request $request, Response $response, ConfigRepository $config, PaymentHelper $paymentHelper, PaymentService $paymentService, SecupaySdkService $sdkService, WebhookRepositoryContract $webhookRepository)
+    public function __construct(Request $request, Response $response, ConfigRepository $config, PaymentHelper $paymentHelper, PaymentService $paymentService, secupaySdkService $sdkService, WebhookRepositoryContract $webhookRepository)
     {
         $this->request = $request;
         $this->response = $response;

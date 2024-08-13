@@ -1,8 +1,8 @@
 <?php
-namespace Secupay\Repositories;
+namespace secupay\Repositories;
 
-use Secupay\Contracts\WebhookRepositoryContract;
-use Secupay\Models\Webhook;
+use secupay\Contracts\WebhookRepositoryContract;
+use secupay\Models\Webhook;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
 
 class WebhookRepository implements WebhookRepositoryContract

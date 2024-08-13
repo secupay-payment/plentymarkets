@@ -1,7 +1,7 @@
 <?php
-use Secupay\Sdk\ApiClient;
+use secupay\Sdk\ApiClient;
 
-class SecupaySdkHelper
+class secupaySdkHelper
 {
 
     /**
@@ -9,7 +9,7 @@ class SecupaySdkHelper
      * @param string $gatewayBasePath
      * @param string $userId
      * @param string $userKey
-     * @return \Secupay\Sdk\ApiClient
+     * @return \secupay\Sdk\ApiClient
      */
     public static function getApiClient($gatewayBasePath, $userId, $userKey): ApiClient
     {
@@ -32,7 +32,7 @@ class SecupaySdkHelper
 
     /**
      *
-     * @param \Secupay\Sdk\Model\LineItem[] $lineItems
+     * @param \secupay\Sdk\Model\LineItem[] $lineItems
      * @return float
      */
     public static function calculateLineItemTotalAmount(array $lineItems)
@@ -47,8 +47,8 @@ class SecupaySdkHelper
     /**
      * Returns the amount of the line item's reductions.
      *
-     * @param \Secupay\Sdk\Model\LineItem[] $lineItems
-     * @param \Secupay\Sdk\Model\LineItemReduction[] $reductions
+     * @param \secupay\Sdk\Model\LineItem[] $lineItems
+     * @param \secupay\Sdk\Model\LineItemReduction[] $reductions
      * @param int $currencyDecimalPlaces
      * @return float
      */
@@ -79,7 +79,7 @@ class SecupaySdkHelper
      */
     public static function convertData($data)
     {
-        return \Secupay\Sdk\ObjectSerializer::sanitizeForSerialization($data);
+        return \secupay\Sdk\ObjectSerializer::sanitizeForSerialization($data);
     }
 
     /**
@@ -88,12 +88,12 @@ class SecupaySdkHelper
      * @param string $fieldName
      * @param mixed $value
      * @param string $operator
-     * @return \Secupay\Sdk\Model\EntityQueryFilter
+     * @return \secupay\Sdk\Model\EntityQueryFilter
      */
-    public static function createEntityFilter($fieldName, $value, $operator = \Secupay\Sdk\Model\CriteriaOperator::EQUALS)
+    public static function createEntityFilter($fieldName, $value, $operator = \secupay\Sdk\Model\CriteriaOperator::EQUALS)
     {
-        $filter = new \Secupay\Sdk\Model\EntityQueryFilter();
-        $filter->setType(\Secupay\Sdk\Model\EntityQueryFilterType::LEAF);
+        $filter = new \secupay\Sdk\Model\EntityQueryFilter();
+        $filter->setType(\secupay\Sdk\Model\EntityQueryFilterType::LEAF);
         $filter->setOperator($operator);
         $filter->setFieldName($fieldName);
         $filter->setValue($value);
@@ -105,11 +105,11 @@ class SecupaySdkHelper
      *
      * @param string $fieldName
      * @param mixed $sortOrder
-     * @return \Secupay\Sdk\Model\EntityQueryOrderBy
+     * @return \secupay\Sdk\Model\EntityQueryOrderBy
      */
-    public static function createEntityOrderBy($fieldName, $sortOrder = \Secupay\Sdk\Model\EntityQueryOrderByType::DESC)
+    public static function createEntityOrderBy($fieldName, $sortOrder = \secupay\Sdk\Model\EntityQueryOrderByType::DESC)
     {
-        $orderBy = new \Secupay\Sdk\Model\EntityQueryOrderBy();
+        $orderBy = new \secupay\Sdk\Model\EntityQueryOrderBy();
         $orderBy->setFieldName($fieldName);
         $orderBy->setSorting($sortOrder);
         return $orderBy;

@@ -1,9 +1,9 @@
 
 
-# Secupay plentymarkets
-This repository contains the plentymarkets extension that enables to process payments with [Secupay](https://secupay.com//).
+# secupay plentymarkets
+This repository contains the plentymarkets extension that enables to process payments with [secupay](https://secupay.com//).
 
-###### To use this extension, a [Secupay](https://secupay.com//) account is required.
+###### To use this extension, a [secupay](https://secupay.com//) account is required.
 
 ## Requirements
 
