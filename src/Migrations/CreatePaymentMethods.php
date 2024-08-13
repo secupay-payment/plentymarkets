@@ -39,7 +39,7 @@ class CreatePaymentMethods
         $this->createPaymentMethod(1457546097615, 'Alipay');
         $this->createPaymentMethod(1457546097602, 'Bank Transfer');
         $this->createPaymentMethod(1477573906453, 'CASHU');
-        $this->createPaymentMethod(1457546097597, 'Credit / Debit Card');
+        $this->createPaymentMethod(1457546097597, 'Credit / Debit Card Secupay');
         $this->createPaymentMethod(1477574926155, 'DaoPay');
         $this->createPaymentMethod(1457546097601, 'Direct Debit (SEPA)');
         $this->createPaymentMethod(1464254757862, 'Direct Debit (UK)');
@@ -68,7 +68,7 @@ class CreatePaymentMethods
     {
         if ($this->paymentHelper->getPaymentMopId($id) == 'no_paymentmethod_found') {
             $this->paymentMethodRepositoryContract->createPaymentMethod([
-                'pluginKey' => 'secupay',
+                'pluginKey' => 'Secupay',
                 'paymentKey' => (string) $id,
                 'name' => $name
             ]);

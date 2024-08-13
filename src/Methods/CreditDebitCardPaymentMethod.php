@@ -15,7 +15,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.creditcard_active') === "true") {
+        if ($this->configRepo->get('Secupay.creditcard_active') === "true") {
             return true;
         } else {
             return false;
@@ -32,11 +32,11 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CreditDebitCardTitle', [], $lang);
+        $title = $translator->trans('Secupay::Payment.CreditDebitCardTitle', [], $lang) . ' 111';
         if (! empty($title)) {
             return $title;
         } else {
-            return 'Credit / Debit Card';
+            return 'Credit / Debit Card 222';
         }
     }
 
@@ -47,7 +47,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
      */
     public function getFee(): float
     {
-        $fee = $this->configRepo->get('secupay.creditcard_fee');
+        $fee = $this->configRepo->get('Secupay.creditcard_fee');
         if (! empty($fee)) {
             return (float) $fee;
         } else {
@@ -65,7 +65,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CreditDebitCardDescription', [], $lang);
+        $title = $translator->trans('Secupay::Payment.CreditDebitCardDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.CreditDebitCardIconUrl', [], $lang);
+        $iconUrl = $translator->trans('Secupay::Payment.CreditDebitCardIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

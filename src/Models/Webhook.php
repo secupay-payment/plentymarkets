@@ -34,7 +34,7 @@ class Webhook extends Model
     public $entityId = 0;
     
     /**
-     * 
+     *
      * @var int
      */
     public $spaceId = 0;
@@ -51,6 +51,6 @@ class Webhook extends Model
      */
     public function getTableName(): string
     {
-        return 'secupay::Webhook';
+        return 'Secupay::Webhook';
     }
 }
