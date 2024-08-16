@@ -32,7 +32,7 @@ class TwintPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TwintTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.TwintTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class TwintPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TwintDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.TwintDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class TwintPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.TwintIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.TwintIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

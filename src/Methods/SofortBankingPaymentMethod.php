@@ -32,7 +32,7 @@ class SofortBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.SofortBankingTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.SofortBankingTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class SofortBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.SofortBankingDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.SofortBankingDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class SofortBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.SofortBankingIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.SofortBankingIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

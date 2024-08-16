@@ -32,7 +32,7 @@ class PoliPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PoliTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.PoliTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class PoliPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.PoliDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.PoliDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class PoliPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.PoliIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.PoliIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

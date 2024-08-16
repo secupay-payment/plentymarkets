@@ -32,7 +32,7 @@ class AlipayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::AliPay.AliPayTitle', [], $lang);
+        $title = $translator->trans('secupay::AliPay.AliPayTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -63,7 +63,7 @@ class AlipayPaymentMethod extends AbstractPaymentMethod
     public function getDescription(string $lang = 'de'): string
     {
         $translator = pluginApp(Translator::class);
-        $title = $translator->trans('wallee::AliPay.AliPayDescription', [], $lang);
+        $title = $translator->trans('secupay::AliPay.AliPayDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -79,7 +79,7 @@ class AlipayPaymentMethod extends AbstractPaymentMethod
     public function getIcon(string $lang = 'de'): string
     {
         $translator = pluginApp(Translator::class);
-        $iconUrl = $translator->trans('wallee::AliPay.AliPayIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::AliPay.AliPayIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

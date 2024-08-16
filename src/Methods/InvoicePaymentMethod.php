@@ -32,7 +32,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.InvoiceTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.InvoiceTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.InvoiceDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.InvoiceDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class InvoicePaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.InvoiceIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.InvoiceIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

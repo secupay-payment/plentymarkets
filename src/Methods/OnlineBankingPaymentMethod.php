@@ -32,7 +32,7 @@ class OnlineBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.OnlineBankingTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.OnlineBankingTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class OnlineBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.OnlineBankingDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.OnlineBankingDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class OnlineBankingPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.OnlineBankingIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.OnlineBankingIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

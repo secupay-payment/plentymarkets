@@ -32,7 +32,7 @@ class IDealPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.IDealTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.IDealTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class IDealPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.IDealDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.IDealDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class IDealPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.IDealIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.IDealIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

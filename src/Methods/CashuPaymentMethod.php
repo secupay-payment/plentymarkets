@@ -32,7 +32,7 @@ class CashuPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CashuTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.CashuTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class CashuPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CashuDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.CashuDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class CashuPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.CashuIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.CashuIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

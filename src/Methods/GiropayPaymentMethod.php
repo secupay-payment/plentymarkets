@@ -32,7 +32,7 @@ class GiropayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.GiropayTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.GiropayTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class GiropayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.GiropayDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.GiropayDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class GiropayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.GiropayIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.GiropayIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

@@ -32,7 +32,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CreditDebitCardTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.CreditDebitCardTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.CreditDebitCardDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.CreditDebitCardDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.CreditDebitCardIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.CreditDebitCardIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

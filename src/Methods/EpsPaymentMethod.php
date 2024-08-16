@@ -32,7 +32,7 @@ class EpsPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.EpsTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.EpsTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {

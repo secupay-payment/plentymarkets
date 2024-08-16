@@ -32,7 +32,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TrustlyTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.TrustlyTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TrustlyDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.TrustlyDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class TrustlyPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.TrustlyIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.TrustlyIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

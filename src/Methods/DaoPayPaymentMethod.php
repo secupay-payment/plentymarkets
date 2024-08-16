@@ -32,7 +32,7 @@ class DaoPayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.DaoPayTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.DaoPayTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class DaoPayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.DaoPayDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.DaoPayDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class DaoPayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.DaoPayIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.DaoPayIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

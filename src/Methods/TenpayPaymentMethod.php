@@ -32,7 +32,7 @@ class TenpayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TenpayTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.TenpayTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class TenpayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.TenpayDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.TenpayDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class TenpayPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.TenpayIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.TenpayIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

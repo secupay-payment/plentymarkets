@@ -32,7 +32,7 @@ class BankTransferPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.BankTransferTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.BankTransferTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class BankTransferPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.BankTransferDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.BankTransferDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class BankTransferPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.BankTransferIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.BankTransferIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

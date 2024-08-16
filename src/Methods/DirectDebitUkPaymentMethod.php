@@ -32,7 +32,7 @@ class DirectDebitUkPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.DirectDebitUkTitle', [], $lang);
+        $title = $translator->trans('secupay::Payment.DirectDebitUkTitle', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class DirectDebitUkPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.DirectDebitUkDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.DirectDebitUkDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class DirectDebitUkPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.DirectDebitUkIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.DirectDebitUkIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {

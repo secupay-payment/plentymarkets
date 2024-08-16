@@ -32,7 +32,7 @@ class Przelewy24PaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.Przelewy24Title', [], $lang);
+        $title = $translator->trans('secupay::Payment.Przelewy24Title', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -65,7 +65,7 @@ class Przelewy24PaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.Przelewy24Description', [], $lang);
+        $title = $translator->trans('secupay::Payment.Przelewy24Description', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class Przelewy24PaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.Przelewy24IconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.Przelewy24IconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {
