@@ -4,7 +4,7 @@
 		"de": "Secupay E-Commerce Hub",
 		"en": "Secupay e-commerce hub"
 	},
-	"namespace": "Secupay",
+	"namespace": "secupay",
 	"type": "payment",
 	"version": "2.0.41",
 	"license": " Apache License Version 2",
