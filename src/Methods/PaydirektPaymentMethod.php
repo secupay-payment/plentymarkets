@@ -15,7 +15,7 @@ class PaydirektPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.paydirekt_active') === "true") {
+        if ($this->configRepo->get('secupay.paydirekt_active') == "true") {
             return true;
         } else {
             return false;

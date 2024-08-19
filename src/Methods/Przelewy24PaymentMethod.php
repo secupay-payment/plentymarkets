@@ -15,7 +15,7 @@ class Przelewy24PaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.przelewy24_active') === "true") {
+        if ($this->configRepo->get('secupay.przelewy24_active') == "true") {
             return true;
         } else {
             return false;

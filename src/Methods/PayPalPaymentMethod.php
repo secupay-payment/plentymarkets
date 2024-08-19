@@ -15,7 +15,7 @@ class PayPalPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.paypal_active') === "true") {
+        if ($this->configRepo->get('secupay.paypal_active') == "true") {
             return true;
         } else {
             return false;

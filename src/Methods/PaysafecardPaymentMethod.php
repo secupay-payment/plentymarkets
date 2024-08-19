@@ -15,7 +15,7 @@ class PaysafecardPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.paysafecard_active') === "true") {
+        if ($this->configRepo->get('secupay.paysafecard_active') == "true") {
             return true;
         } else {
             return false;
