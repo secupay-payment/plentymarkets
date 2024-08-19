@@ -40,7 +40,7 @@
 		"php": ">=7.3 <8.1"
 	},
 	"dependencies": {
-		"secupay/sdk": "4.4.0"
+		"secupay/sdk": "4.5.0"
 	},
 	"runOnBuild": [
 		"Secupay\\Migrations\\CreatePaymentMethods",
