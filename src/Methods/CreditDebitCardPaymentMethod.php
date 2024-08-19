@@ -16,7 +16,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
     public function isActive(): bool
     {
         //return true;
-        if ($this->configRepo->get('secupay.creditcard_active') == "true" || $this->configRepo->get('Secupay.creditcard_active') == "true") {
+        if ($this->configRepo->get('secupay.creditcard_active') == "true") {
             return true;
         } else {
             return false;
