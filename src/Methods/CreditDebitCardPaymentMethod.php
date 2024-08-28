@@ -16,7 +16,7 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
     public function isActive(): bool
     {
         //return true;
-        if ($this->configRepo->get('secupay.creditcard_active') == "true") {
+        if ($this->configRepo->get('secupay.creditcard_active') === "true") {
             return true;
         } else {
             return false;
@@ -30,7 +30,6 @@ class CreditDebitCardPaymentMethod extends AbstractPaymentMethod
      */
     public function getName(string $lang = 'de'): string
     {
-        return 'Secupay Credit / Debit Card';
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 

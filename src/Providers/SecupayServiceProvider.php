@@ -106,7 +106,7 @@ class SecupayServiceProvider extends ServiceProvider
 
         $secupayServiceProviderHelper->addExecutePaymentContentEventListener();
 
-        $cronContainer->add(CronContainer::EVERY_FIFTEEN_MINUTES, WebhookCronHandler::class);
+        $cronContainer->add(CronContainer::EVERY_MINUTE, WebhookCronHandler::class);
     }
 
     private function registerPaymentMethod($payContainer, $id, $class)
