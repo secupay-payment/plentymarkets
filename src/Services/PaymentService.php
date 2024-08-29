@@ -257,7 +257,7 @@ class PaymentService
 
         $isFetchPossiblePaymentMethodsEnabled = $this->config->get('secupay.enable_payment_fetch');
 
-        if ($isFetchPossiblePaymentMethodsEnabled === "true") {
+        if ($isFetchPossiblePaymentMethodsEnabled == "true") {
             $hasPossiblePaymentMethods = $this->sdkService->call('hasPossiblePaymentMethods', [
                 'transactionId' => $transaction['id']
             ]);
