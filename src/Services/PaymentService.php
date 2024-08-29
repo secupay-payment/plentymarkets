@@ -256,12 +256,15 @@ class PaymentService
         $timingLogs["createPlentyPayment"] = microtime(true) - $time_start;
 
         $isFetchPossiblePaymentMethodsEnabled = $this->config->get('secupay.enable_payment_fetch');
-
+        
+        $this->getLogger(__METHOD__)->error('secupay::debug.step_1', $timingLogs);
         if ($isFetchPossiblePaymentMethodsEnabled == "true") {
+            $this->getLogger(__METHOD__)->error('secupay::debug.step_2', $timingLogs);
             $hasPossiblePaymentMethods = $this->sdkService->call('hasPossiblePaymentMethods', [
                 'transactionId' => $transaction['id']
             ]);
             if (! $hasPossiblePaymentMethods) {
+                $this->getLogger(__METHOD__)->error('secupay::debug.step_3', $timingLogs);
                 return [
                     'transactionId' => $transaction['id'],
                     'type' => GetPaymentMethodContent::RETURN_TYPE_ERROR,
@@ -271,6 +274,7 @@ class PaymentService
 
             $timingLogs["hasPossiblePaymentMethods"] = microtime(true) - $time_start;
         }
+        $this->getLogger(__METHOD__)->error('secupay::debug.step_4', $timingLogs);
 
         $paymentPageUrl = $this->sdkService->call('buildPaymentPageUrl', [
             'id' => $transaction['id']
