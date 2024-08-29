@@ -70,7 +70,7 @@ class SecupayServiceProviderHelper
      */
     public function addExecutePaymentContentEventListener() {
         $this->eventDispatcher->listen(ExecutePayment::class, function (ExecutePayment $event) {
-            
+            $this->getLogger(__METHOD__)->error('secupay::debug.event_data', $event);
             $time_start = microtime(true);
             $timingLogs = [];
 
