@@ -96,7 +96,7 @@ class SecupayServiceProviderHelper
 
             $timingLogs["executePayment"] = microtime(true) - $time_start;
 
-            $this->getLogger(__METHOD__)->error('secupay::debug.secupay_timing_serviceprovider', $timingLogs);
+            $this->getLogger(__METHOD__)->debug('secupay::debug.secupay_timing_serviceprovider', $timingLogs);
         });
     }
 }

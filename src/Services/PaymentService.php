@@ -180,7 +180,6 @@ class PaymentService
     public function executePayment(Order $order, PaymentMethod $paymentMethod): array
     {
         $transactionId = $this->session->getPlugin()->getValue('secupayTransactionId');
-        $this->getLogger(__METHOD__)->error('secupay::transaction_id', $transactionId);
         $time_start = microtime(true);
         $timingLogs = [];
 
@@ -199,7 +198,7 @@ class PaymentService
             'failedUrl' => $this->getFailedUrl(),
             'checkoutUrl' => $this->getCheckoutUrl()
         ];
-        $this->getLogger(__METHOD__)->error('secupay::TransactionParameters', $parameters);
+        $this->getLogger(__METHOD__)->debug('secupay::TransactionParameters', $parameters);
 
         $this->session->getPlugin()->unsetKey('secupayTransactionId');
 
@@ -221,7 +220,6 @@ class PaymentService
                 'CONFIRMED',
                 'PROCESSING'
             ])) {
-                $this->getLogger(__METHOD__)->error('secupay::transaction_not_in_state', $existingTransaction);
                 return [
                     'transactionId' => $transactionId,
                     'type' => GetPaymentMethodContent::RETURN_TYPE_ERROR,
@@ -231,10 +229,8 @@ class PaymentService
                 'PENDING',
                 'FAILED'
             ])) {
-                $this->getLogger(__METHOD__)->error('secupay::transaction_not_in_state2', $existingTransaction);
                 // Ok, continue.
             } else {
-                $this->getLogger(__METHOD__)->error('secupay::success', $existingTransaction);
                 return [
                     'type' => GetPaymentMethodContent::RETURN_TYPE_REDIRECT_URL,
                     'content' => $this->getSuccessUrl()
