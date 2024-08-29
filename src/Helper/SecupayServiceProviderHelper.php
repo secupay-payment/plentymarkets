@@ -70,7 +70,7 @@ class SecupayServiceProviderHelper
      */
     public function addExecutePaymentContentEventListener() {
         $this->eventDispatcher->listen(ExecutePayment::class, function (ExecutePayment $event) {
-            sleep(2);
+            
             $time_start = microtime(true);
             $timingLogs = [];
 
@@ -92,11 +92,11 @@ class SecupayServiceProviderHelper
                 );
                 $event->setValue(isset($result['content']) ? $result['content'] : null);
                 $event->setType(isset($result['type']) ? $result['type'] : '');
-            } else {
-                $timingLogs["executePayment"] = microtime(true) - $time_start;
-                
-                $this->getLogger(__METHOD__)->error('secupay::debug.secupay_timing_serviceprovider', $timingLogs);
             }
+
+            $timingLogs["executePayment"] = microtime(true) - $time_start;
+
+            $this->getLogger(__METHOD__)->error('secupay::debug.secupay_timing_serviceprovider', $timingLogs);
         });
     }
 }
