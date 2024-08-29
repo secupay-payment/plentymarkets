@@ -70,7 +70,7 @@ class SecupayServiceProviderHelper
      */
     public function addExecutePaymentContentEventListener() {
         $this->eventDispatcher->listen(ExecutePayment::class, function (ExecutePayment $event) {
-            slee(2);
+            sleep(2);
             $time_start = microtime(true);
             $timingLogs = [];
 
