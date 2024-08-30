@@ -169,6 +169,7 @@ class PaymentProcessController extends Controller
      */
     public function failTransaction(Twig $twig, int $id)
     {
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 22.', $id);
         $transaction = $this->sdkService->call('getTransaction', [
             'id' => $id
         ]);

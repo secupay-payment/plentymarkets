@@ -63,6 +63,7 @@ class WebhookCronHandler extends CronHandler
 
     public function handle()
     {
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 00 handle.');
         foreach ($this->webhookRepository->getWebhookList() as $webhook) {
             try {
                 $this->getLogger(__METHOD__)->info('processWebhook', $webhook);

@@ -156,6 +156,7 @@ class PaymentHelper
 
     public function updatePlentyPayment($transaction)
     {
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 44.', $transaction);
         $payments = $this->paymentRepository->getPaymentsByPropertyTypeAndValue(PaymentProperty::TYPE_TRANSACTION_ID, $transaction['id']);
 
         $state = $this->mapTransactionState($transaction['state']);
