@@ -105,8 +105,8 @@ class SecupayServiceProvider extends ServiceProvider
         ], 'Secupay\Procedures\RefundEventProcedure@run');
 
         $secupayServiceProviderHelper->addExecutePaymentContentEventListener();
-
-        $cronContainer->add('* * * * *', WebhookCronHandler::class);
+        
+        $cronContainer->add(CronContainer::EVERY_FIFTEEN_MINUTES, \Wallee\Services\WebhookCronHandler::class);
     }
 
     private function registerPaymentMethod($payContainer, $id, $class)
