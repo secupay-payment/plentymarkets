@@ -78,7 +78,9 @@ class WebhookCronHandler extends CronHandler
 
     protected function processWebhook(Webhook $webhook)
     {
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 1.', $webhook);
         if (strtolower($webhook->listenerEntityTechnicalName) == 'transaction') {
+            $this->getLogger(__METHOD__)->error('Debug Webhook. Step 2.', $webhook);
             $transactionId = $webhook->entityId;
             $transaction = $this->sdkService->call('getTransaction', [
                 'id' => $transactionId,
@@ -91,6 +93,7 @@ class WebhookCronHandler extends CronHandler
             if (is_array($transaction) && isset($transaction['error'])) {
                 throw new \Exception($transaction['error_msg']);
             }
+            $this->getLogger(__METHOD__)->error('Debug Webhook. Step 3.', $webhook);
             return $this->paymentHelper->updatePlentyPayment($transaction);
         } elseif (strtolower($webhook->listenerEntityTechnicalName) == 'transactioninvoice') {
             $transactionInvoiceId = $webhook->entityId;

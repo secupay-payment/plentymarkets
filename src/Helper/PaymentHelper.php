@@ -159,9 +159,9 @@ class PaymentHelper
         $payments = $this->paymentRepository->getPaymentsByPropertyTypeAndValue(PaymentProperty::TYPE_TRANSACTION_ID, $transaction['id']);
 
         $state = $this->mapTransactionState($transaction['state']);
-
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 4.', $payments);
+        $this->getLogger(__METHOD__)->error('Debug Webhook. Step 5.', $state);
         $this->markPaymentsCaptured($state, $payments);
-        
         return true;
     }
 
@@ -194,24 +194,32 @@ class PaymentHelper
      * @param string $state
      * @param array $payments
      */
-    private function markPaymentsCaptured($state, $payments) 
+    private function markPaymentsCaptured($state, $payments)
     {
         foreach ($payments as $payment) {
             /* @var Payment $payment */
             if ($payment->status != $state) {
+                $this->getLogger(__METHOD__)->error('Debug Webhook. Step 7.', $state);
                 // ensure payment state can only move forward
                 if ($payment->status < $state) {
+                    $this->getLogger(__METHOD__)->error('Debug Webhook. Step 8.', $state);
                     $payment->status = $state;
                 } else {
+                    $this->getLogger(__METHOD__)->error('Debug Webhook. Step 9.', $state);
                     return;
                 }
                 // checking unaccountable to ensure that the payment hasn't been assigned twice
                 // unaccountable = An unassigned payment. Unassigned payments have the value 1.
                 if ($state == Payment::STATUS_CAPTURED && $payment->unaccountable == 1) {
+                    $this->getLogger(__METHOD__)->error('Debug Webhook. Step 10.', $state);
                     $payment->unaccountable = 0;
                     $payment->updateOrderPaymentStatus = true;
+                } else {
+                    $this->getLogger(__METHOD__)->error('Debug Webhook. Step 11.', $state);
                 }
                 $this->paymentRepository->updatePayment($payment);
+            } else {
+                $this->getLogger(__METHOD__)->error('Debug Webhook. Step 6.', $state);
             }
         }
     }
