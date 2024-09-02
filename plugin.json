@@ -39,6 +39,9 @@
 	"platform": {
 		"php": ">=7.3 <8.1"
 	},
+	"dependencies": {
+		"secupay/sdk": "4.5.0"
+	},
 	"runOnBuild": [
 		"Secupay\\Migrations\\CreatePaymentMethods",
 		"Secupay\\Migrations\\CreateWebhooks",
