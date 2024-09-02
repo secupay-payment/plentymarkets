@@ -499,17 +499,16 @@ class PaymentService
      */
     public function refund($transactionId, Order $refundOrder, Order $order)
     {
-        $directory = 'vendor/secupay/sdk/src/Model/';
+        $className = 'Secupay\Sdk\Model\RefundCreate';
 
-// Check if the directory exists
-        if (is_dir($directory)) {
-            // Get an array of all files and directories
-            $files = scandir($directory);
+// Check if the class exists
+        if (class_exists($className)) {
+            $msg =  "The class $className exists.";
         } else {
-            echo "Directory does not exist.";
+            $msg = "The class $className does not exist.";
         }
         
-        $this->getLogger(__METHOD__)->error('secupay:RefundOrder debug', $files);
+        $this->getLogger(__METHOD__)->error('secupay:RefundOrder debug', $msg);
         
         $this->getLogger(__METHOD__)->debug('secupay:RefundOrder', [
             'transactionId' => $transactionId,
