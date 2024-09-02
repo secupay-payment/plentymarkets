@@ -505,16 +505,6 @@ class PaymentService
         if (is_dir($directory)) {
             // Get an array of all files and directories
             $files = scandir($directory);
-            
-            // Filter out the current (.) and parent (..) directories
-            $files = array_diff($files, array('.', '..'));
-            
-            // Print the list of files
-            foreach ($files as $file) {
-                if (is_file($directory . $file)) {
-                    echo $file . "\n";
-                }
-            }
         } else {
             echo "Directory does not exist.";
         }
