@@ -499,17 +499,6 @@ class PaymentService
      */
     public function refund($transactionId, Order $refundOrder, Order $order)
     {
-        $className = 'Secupay\Sdk\Model\RefundCreate';
-
-// Check if the class exists
-        if (class_exists($className)) {
-            $msg =  "The class $className exists.";
-        } else {
-            $msg = "The class $className does not exist.";
-        }
-        
-        $this->getLogger(__METHOD__)->error('secupay:RefundOrder debug', $msg);
-        
         $this->getLogger(__METHOD__)->debug('secupay:RefundOrder', [
             'transactionId' => $transactionId,
             'refundOrder' => $refundOrder,
