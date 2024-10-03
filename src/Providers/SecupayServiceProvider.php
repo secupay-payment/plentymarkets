@@ -31,6 +31,7 @@ use Secupay\Methods\PaylibPaymentMethod;
 use Secupay\Methods\PayPalPaymentMethod;
 use Secupay\Methods\PaysafecardPaymentMethod;
 use Secupay\Methods\PoliPaymentMethod;
+use Secupay\Methods\PostFinancePayPaymentMethod;
 use Secupay\Methods\Przelewy24PaymentMethod;
 use Secupay\Methods\QiwiPaymentMethod;
 use Secupay\Methods\SkrillPaymentMethod;
@@ -90,6 +91,7 @@ class SecupayServiceProvider extends ServiceProvider
         $this->registerPaymentMethod($payContainer, 1457546097613, PayPalPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097612, PaysafecardPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097618, PoliPaymentMethod::class);
+        $this->registerPaymentMethod($payContainer, 1689233132073, PostFinancePayPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097617, Przelewy24PaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097616, QiwiPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097614, SkrillPaymentMethod::class);

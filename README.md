@@ -13,8 +13,8 @@ This repository contains the plentymarkets extension that enables to process pay
 
 ## Documentation
 
-* [Documentation](https://shopportal.secupay.com/doc/plentymarkets/2.0.41/docs/en/documentation.html)
+* [Documentation](https://shopportal.secupay.com/doc/plentymarkets/2.1.0/docs/en/documentation.html)
 
 ## License
 
-Please see the [license file](https://github.com/secupay-payment/plentymarkets/blob/2.0.41/LICENSE) for more information.
+Please see the [license file](https://github.com/secupay-payment/plentymarkets/blob/2.1.0/LICENSE) for more information.

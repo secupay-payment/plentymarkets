@@ -15,7 +15,7 @@ class EpsPaymentMethod extends AbstractPaymentMethod
      */
     public function isActive(): bool
     {
-        if ($this->configRepo->get('secupay.eps_active') === "true") {
+        if ($this->configRepo->get('secupay.eps_active') == "true") {
             return true;
         } else {
             return false;
@@ -65,7 +65,7 @@ class EpsPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $title = $translator->trans('wallee::Payment.EpsDescription', [], $lang);
+        $title = $translator->trans('secupay::Payment.EpsDescription', [], $lang);
         if (! empty($title)) {
             return $title;
         } else {
@@ -83,7 +83,7 @@ class EpsPaymentMethod extends AbstractPaymentMethod
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
 
-        $iconUrl = $translator->trans('wallee::Payment.EpsIconUrl', [], $lang);
+        $iconUrl = $translator->trans('secupay::Payment.EpsIconUrl', [], $lang);
         if (!empty($iconUrl)) {
             return $iconUrl;
         } else {
