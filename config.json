@@ -155,25 +155,6 @@
                     "options": {}
                 }
             }
-        },
-        "Config.OnlineBankingTab": {
-            "label": "Config.OnlineBankingTab",
-            "formFields": {
-                "OnlineBanking_active": {
-                    "type": "checkBox",
-                    "required": false,
-                    "label": "Config.OnlineBankingActiveLabel",
-                    "options": {
-                        "defaultValue": true
-                    }
-                },
-                "OnlineBanking_fee": {
-                    "type": "inputText",
-                    "required": false,
-                    "label": "Config.OnlineBankingFeeLabel",
-                    "options": {}
-                }
-            }
         }
     }
 }

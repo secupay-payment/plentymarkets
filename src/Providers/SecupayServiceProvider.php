@@ -17,15 +17,14 @@ use Plenty\Modules\Cron\Services\CronContainer;
 use Secupay\Contracts\WebhookRepositoryContract;
 use Secupay\Helper\PaymentHelper;
 use Secupay\Helper\SecupayServiceProviderHelper;
-use Secupay\Procedures\RefundEventProcedure;
-use Secupay\Repositories\WebhookRepository;
-use Secupay\Services\PaymentService;
-use Secupay\Services\WebhookCronHandler;
 use Secupay\Methods\BankTransferPaymentMethod;
 use Secupay\Methods\CreditDebitCardPaymentMethod;
 use Secupay\Methods\DirectDebitSepaPaymentMethod;
 use Secupay\Methods\InvoicePaymentMethod;
-use Secupay\Methods\OnlineBankingPaymentMethod;
+use Secupay\Procedures\RefundEventProcedure;
+use Secupay\Repositories\WebhookRepository;
+use Secupay\Services\PaymentService;
+use Secupay\Services\WebhookCronHandler;
 use IO\Services\BasketService;
 
 class SecupayServiceProvider extends ServiceProvider
@@ -54,7 +53,6 @@ class SecupayServiceProvider extends ServiceProvider
         $this->registerPaymentMethod($payContainer, 1457546097597, CreditDebitCardPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097601, DirectDebitSepaPaymentMethod::class);
         $this->registerPaymentMethod($payContainer, 1457546097598, InvoicePaymentMethod::class);
-        $this->registerPaymentMethod($payContainer, 1460954915005, OnlineBankingPaymentMethod::class);
 
         // Register Refund Event Procedure
         $eventProceduresService->registerProcedure('plentySecupay', ProcedureEntry::PROCEDURE_GROUP_ORDER, [

@@ -40,7 +40,6 @@ class CreatePaymentMethods
         $this->createPaymentMethod(1457546097597, 'Credit / Debit Card');
         $this->createPaymentMethod(1457546097601, 'Direct Debit (SEPA)');
         $this->createPaymentMethod(1457546097598, 'Invoice');
-        $this->createPaymentMethod(1460954915005, 'Online Banking');
     }
 
     private function createPaymentMethod($id, $name)
