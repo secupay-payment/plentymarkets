@@ -3,6 +3,7 @@ use Secupay\Sdk\Model\WebhookUrlCreate;
 use Secupay\Sdk\Model\WebhookListenerCreate;
 use Secupay\Sdk\Service\WebhookUrlService;
 use Secupay\Sdk\Service\WebhookListenerService;
+use Secupay\Sdk\Model\WebhookListenerUpdate;
 
 require_once __DIR__ . '/SecupaySdkHelper.php';
 
@@ -98,6 +99,16 @@ foreach ($webhookEntities as $webhookEntity) {
     foreach ($existingListeners as $existingListener) {
         if ($existingListener->getEntity() == $webhookEntity->getId()) {
             $exists = true;
+
+            if (!$existingListener->getEnablePayloadSignatureAndState()) {
+
+                $webhookListenerRequest = new WebhookListenerUpdate();
+                $webhookListenerRequest->setId($existingListener->getId());
+                $webhookListenerRequest->setVersion($existingListener->getVersion());
+                $webhookListenerRequest->setEnablePayloadSignatureAndState(true);
+
+                $webhookListenerService->update($spaceId, $webhookListenerRequest);
+            }
         }
     }
 
